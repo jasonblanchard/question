@@ -1,0 +1,19 @@
+{
+  "name": "interview-question",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@instructure/ui-core": "^4.7.3",
+    "@instructure/ui-themes": "^4.7.3",
+    "prop-types": "^15.6.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-scripts": "1.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
