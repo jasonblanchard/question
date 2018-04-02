@@ -1,42 +1,24 @@
 import React, { Component } from 'react';
-import ScreenReaderContent from '@instructure/ui-core/lib/components/ScreenReaderContent'
-import Table from '@instructure/ui-core/lib/components/Table';
 
-import { average } from './utils/MathUtils';
+import ExerciseSubmissionsList from './ExerciseSubmissionsList';
+import apiService from './apiService';
 
-class App extends Component {
-  render() {
-    const submissions = this.props.exercise.submissions;
-    const scores = submissions.map(submission => submission.score);
-    const averageScore = average(scores);
-
-    return (
-      <div className="App">
-        <h1>Submissions from Active Users</h1>
-        <strong>Average Score</strong>: {averageScore}
-        <Table striped="rows" caption={<ScreenReaderContent>submissions</ScreenReaderContent>}>
-          <thead>
-            <tr>
-              <th>User Id</th>
-              <th>Score</th>
-            </tr>
-          </thead>
-          <tbody>
-            {submissions.map(this._renderSubmission, this)}
-          </tbody>
-        </Table>
-      </div>
-    );
+export default class App extends Component {
+  state = {
+    exercise: undefined
   }
 
-  _renderSubmission(submission) {
+  componentDidMount() {
+    apiService.getExercise()
+      .then(exercise => {
+        this.setState({ exercise });
+      });
+  }
+
+  render() {
+    if (!this.state.exercise) return <div>Loading...</div>;
     return (
-      <tr key={submission.id}>
-        <td>{submission.user.id}</td>
-        <td>{submission.score}</td>
-      </tr>
-    );
+      <ExerciseSubmissionsList exercise={this.state.exercise} />
+    )
   }
 }
-
-export default App;
