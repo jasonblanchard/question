@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with an Exercise 1`] = `
+<div
+  className="App"
+>
+  <h1>
+    Submissions from Active Users
+  </h1>
+  <strong>
+    Average Score
+  </strong>
+  : 
+  83
+  <Table
+    caption={
+      <ScreenReaderContent
+        as="span"
+      >
+        submissions
+      </ScreenReaderContent>
+    }
+    hover={false}
+    size="medium"
+    striped="rows"
+  >
+    <thead>
+      <tr>
+        <th>
+          User Id
+        </th>
+        <th>
+          Score
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          1
+        </td>
+        <td>
+          100
+        </td>
+      </tr>
+      <tr>
+        <td>
+          2
+        </td>
+        <td>
+          80
+        </td>
+      </tr>
+      <tr>
+        <td>
+          3
+        </td>
+        <td>
+          70
+        </td>
+      </tr>
+    </tbody>
+  </Table>
+</div>
+`;
